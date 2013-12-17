@@ -29,6 +29,42 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: maps; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE maps (
+    id integer NOT NULL,
+    user_id integer,
+    map_type character varying(255) DEFAULT 'blank'::character varying,
+    name character varying(255),
+    description text,
+    map_width numeric,
+    map_height numeric,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: maps_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE maps_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: maps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE maps_id_seq OWNED BY maps.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -87,7 +123,22 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY maps ALTER COLUMN id SET DEFAULT nextval('maps_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: maps_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY maps
+    ADD CONSTRAINT maps_pkey PRIMARY KEY (id);
 
 
 --
@@ -127,6 +178,14 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: map2to_user_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY maps
+    ADD CONSTRAINT map2to_user_fk FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -135,3 +194,7 @@ SET search_path TO "$user",public;
 INSERT INTO schema_migrations (version) VALUES ('20131216220408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131216232457');
+
+INSERT INTO schema_migrations (version) VALUES ('20131217145339');
+
+INSERT INTO schema_migrations (version) VALUES ('20131217152148');
