@@ -3,6 +3,7 @@ class MapsController < ApplicationController
 
   # GET /maps
   # GET /maps.json
+  # index is to include a small search feature, just names & descriptions
   def index
     @maps = Map.all
   end
@@ -59,6 +60,23 @@ class MapsController < ApplicationController
       format.html { redirect_to maps_url }
       format.json { head :no_content }
     end
+  end
+
+  def named_maps
+    # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
+    @map = Map.where('name = ?', params[:name]).first
+    if @map
+      if user_signed_in?
+        render 'edit' and return
+      else
+        render 'show' and return
+      end
+    else
+      # perhaps should show a generic map screen instead
+      flash.now[:alert] = "Map #{params[:name]} not found."
+      render 'index' and return
+    end
+
   end
 
   private

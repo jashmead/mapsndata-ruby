@@ -1,4 +1,16 @@
                   Prefix Verb   URI Pattern                     Controller#Action
+                maps_new GET    /maps/new(.:format)             maps#new
+                         GET    /maps/:name(.:format)           maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
+         named_maps_maps GET    /maps/named_maps(.:format)      maps#named_maps
+                    maps GET    /maps(.:format)                 maps#index
+                         POST   /maps(.:format)                 maps#create
+                 new_map GET    /maps/new(.:format)             maps#new
+                edit_map GET    /maps/:id/edit(.:format)        maps#edit
+                     map GET    /maps/:id(.:format)             maps#show
+                         PATCH  /maps/:id(.:format)             maps#update
+                         PUT    /maps/:id(.:format)             maps#update
+                         DELETE /maps/:id(.:format)             maps#destroy
+                    home GET    /home(.:format)                 maps#home
         new_user_session GET    /users/sign_in(.:format)        devise/sessions#new
             user_session POST   /users/sign_in(.:format)        devise/sessions#create
     destroy_user_session GET    /users/sign_out(.:format)       devise/sessions#destroy
@@ -31,4 +43,7 @@ cancel_user_registration GET    /users/cancel(.:format)         devise/registrat
       static_pages_about GET    /static_pages/about(.:format)   static_pages#about
     static_pages_contact GET    /static_pages/contact(.:format) static_pages#contact
        static_pages_help GET    /static_pages/help(.:format)    static_pages#help
-                    root GET    /                               static_pages#about
+                   about GET    /about(.:format)                static_pages#about
+                 contact GET    /contact(.:format)              static_pages#contact
+                    help GET    /help(.:format)                 static_pages#help
+                    root GET    /                               maps#home

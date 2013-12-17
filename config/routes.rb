@@ -1,6 +1,19 @@
 Mapsndata::Application.routes.draw do
 
-  resources :maps
+  # do help & sitemap as, logically enough, maps
+
+  # avoid treating 'new' as the name of a map
+  get '/maps/new', to: 'maps#new'
+
+  get '/maps/:name', to: 'maps#named_map', constraints: { name: /[A-Za-z][A-Za-z0-9_]*/ }
+
+  resources :maps do
+    collection do
+      get :named_maps
+    end
+  end
+
+  match '/home', to: 'maps#home', via: 'get'
 
   devise_for :users
 
@@ -19,6 +32,11 @@ Mapsndata::Application.routes.draw do
   get "static_pages/about"
   get "static_pages/contact"
   get "static_pages/help"
+
+  # direct routes
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/help', to: 'static_pages#help', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -76,6 +94,6 @@ Mapsndata::Application.routes.draw do
   #   end
 
   # switch root to be the "home" map, when it's ready
-  root :to => "static_pages#about"
+  root :to => "maps#home"
 
 end

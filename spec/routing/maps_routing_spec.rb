@@ -31,5 +31,8 @@ describe MapsController do
       delete("/maps/1").should route_to("maps#destroy", :id => "1")
     end
 
+    it "routes to #named_map when given a name" do
+      get("/maps/test_map").should route_to("maps#named_map", :name => "test_map")
+    end
   end
 end
