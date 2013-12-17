@@ -12,6 +12,9 @@ Mapsndata::Application.routes.draw do
   get '/maps/:name', to: 'maps#named_map', constraints: { name: /[A-Za-z][A-Za-z0-9_]*/ }
 
   resources :maps do
+    member do
+      get :blank
+    end
     collection do
       get :named_maps
     end

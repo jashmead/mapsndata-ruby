@@ -45,7 +45,9 @@ class Map < ActiveRecord::Base
   # gis fields:
   #   longitude, latitude -- of center one imagines
   # edit fields (to be added):
-  #   editor_id -- maps to users, updated_at will give the edit time
+  #   edit_user_id -- maps to users, updated_at will give the edit time, assigned to current user, if in edit mode
+  #   edit_comment -- text
+  #   edit_checked_out_at -- optimistic locking datetime
   # file/image fields (to be added)
 
   private

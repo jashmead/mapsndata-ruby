@@ -79,6 +79,22 @@ class MapsController < ApplicationController
 
   end
 
+  def blank
+    # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
+    @map = Map.where('name = ?', params[:name]).first
+    if @map
+      if user_signed_in?
+        @mode = 'edit'
+      else
+        @mode = 'show'
+      end
+    else
+      # perhaps should show a generic map screen instead
+      flash.now[:alert] = "Map #{params[:name]} not found."
+      render 'index' and return
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_map

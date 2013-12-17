@@ -21,6 +21,10 @@ describe MapsController do
       get("/maps/1/edit").should route_to("maps#edit", :id => "1")
     end
 
+    it "routes to #blank" do
+      get("/maps/1/blank").should route_to("maps#blank", :id => "1")
+    end
+
     it "routes to #create" do
       post("/maps").should route_to("maps#create")
     end
