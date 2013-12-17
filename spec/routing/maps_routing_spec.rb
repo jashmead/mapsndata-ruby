@@ -1,5 +1,7 @@
 require "spec_helper"
 
+# a number of requests are done by redirecting to an appropriately named map, see spec/requests/redirects_spec.rb for these
+
 describe MapsController do
   describe "routing" do
 
@@ -34,5 +36,6 @@ describe MapsController do
     it "routes to #named_map when given a name" do
       get("/maps/test_map").should route_to("maps#named_map", :name => "test_map")
     end
+
   end
 end
