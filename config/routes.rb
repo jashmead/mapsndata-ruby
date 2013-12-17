@@ -1,6 +1,7 @@
 Mapsndata::Application.routes.draw do
 
   # do home, help & sitemap as, logically enough, maps
+  get '/', to: redirect('/maps/home')
   get '/home', to: redirect('/maps/home')
   get '/help', to: redirect('/maps/help')
   get '/sitemap', to: redirect('/maps/sitemap')
