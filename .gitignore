@@ -14,3 +14,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+*.bak*
+*.out
+*.lst
+?
+[^a-zA-Z]?
+*.awk
+*.sorted
+
+# Ignore api documentation
+/doc/api
+/doc/app
