@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @map.user_id %>
+</p>
+
+<p>
+  <strong>Map type:</strong>
+  <%= @map.map_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @map.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @map.description %>
+</p>
+
+<p>
+  <strong>Map width:</strong>
+  <%= @map.map_width %>
+</p>
+
+<p>
+  <strong>Map height:</strong>
+  <%= @map.map_height %>
+</p>
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>

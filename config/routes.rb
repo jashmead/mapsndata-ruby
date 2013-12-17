@@ -1,5 +1,7 @@
 Mapsndata::Application.routes.draw do
 
+  resources :maps
+
   devise_for :users
 
   devise_scope :user do
