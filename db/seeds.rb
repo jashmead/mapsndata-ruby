@@ -3,41 +3,41 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create!(name: 'Emanuel', city: cities.first)
 
 # production email will have to be different
 
 # not using 'create!' as there is no harm in building the users, maps 2x
-mapsndata_user = User.create( 
+mapsndata_user = User.create!( 
   name: 'mapsndata',
   email: 'mapsndata@mapsndata.com',
   password: 'Dr@g0n13',
   password_confirmation: 'Dr@g0n13'
 )
 
-mapsndata_developer = User.create( 
+mapsndata_developer = User.create!( 
   name: 'jashmead',
   email: 'john.ashmead@mapsndata.com',
   password: 'Dr@g0n13',
   password_confirmation: 'Dr@g0n13'
 )
 
-home_map = Map.create(
+home_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'home',
   description: 'Home map for Maps & Data',
   map_type: 'blank'
 )
 
-help_map = Map.create(
+help_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'help',
   description: 'Home map for Maps & Data',
   map_type: 'blank'
 )
 
-site_map = Map.create(
+site_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'sitemap',
   description: 'Site Map for Maps & Data',

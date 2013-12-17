@@ -62,7 +62,7 @@ class MapsController < ApplicationController
     end
   end
 
-  def named_maps
+  def named_map
     # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
     @map = Map.where('name = ?', params[:name]).first
     if @map
