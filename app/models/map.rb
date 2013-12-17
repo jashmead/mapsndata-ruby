@@ -48,6 +48,7 @@ class Map < ActiveRecord::Base
   #   edit_user_id -- maps to users, updated_at will give the edit time, assigned to current user, if in edit mode
   #   edit_comment -- text
   #   edit_checked_out_at -- optimistic locking datetime
+  #   cloned_from_id -- id of map this was cloned from
   # file/image fields (to be added)
 
   private
