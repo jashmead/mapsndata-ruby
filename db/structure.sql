@@ -83,9 +83,6 @@ CREATE TABLE users (
     email character varying(255) DEFAULT ''::character varying NOT NULL,
     description text,
     url character varying(255),
-    address character varying(255),
-    longitude numeric,
-    latitude numeric,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
@@ -198,3 +195,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131216232457');
 INSERT INTO schema_migrations (version) VALUES ('20131217145339');
 
 INSERT INTO schema_migrations (version) VALUES ('20131217152148');
+
+INSERT INTO schema_migrations (version) VALUES ('20131217220225');
