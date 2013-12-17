@@ -7,17 +7,40 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # production email will have to be different
-mapsndata = User.create! ( 
+
+# not using 'create!' as there is no harm in building the users, maps 2x
+mapsndata_user = User.create( 
   name: 'mapsndata',
-  email: 'talk@johns-imac.home',
+  email: 'mapsndata@mapsndata.com',
   password: 'Dr@g0n13',
   password_confirmation: 'Dr@g0n13'
 )
 
-home = Map.create! (
-  user_id: mapsndata.id,
+mapsndata_developer = User.create( 
+  name: 'jashmead',
+  email: 'john.ashmead@mapsndata.com',
+  password: 'Dr@g0n13',
+  password_confirmation: 'Dr@g0n13'
+)
+
+home_map = Map.create(
+  user_id: mapsndata_user.id,
   name: 'home',
-  description: 'Home map for maps & data',
+  description: 'Home map for Maps & Data',
+  map_type: 'blank'
+)
+
+help_map = Map.create(
+  user_id: mapsndata_user.id,
+  name: 'help',
+  description: 'Home map for Maps & Data',
+  map_type: 'blank'
+)
+
+site_map = Map.create(
+  user_id: mapsndata_user.id,
+  name: 'sitemap',
+  description: 'Site Map for Maps & Data',
   map_type: 'blank'
 )
 
