@@ -14,6 +14,13 @@ class User < ActiveRecord::Base
   # destroy will only destroy the top copy, see the history triggers & tables
   has_many :maps, inverse_of: :user, dependent: :destroy
 
+  # additional fields:
+  #   -- none
+  # file/photo field:
+  #   -- to be added, if we feel like it
+  # contact information
+  #   -- probably not at this point, have just removed the address & lat/log from the table after all
+
   before_save do
     self.email = email.downcase
   end

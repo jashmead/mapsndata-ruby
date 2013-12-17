@@ -11,9 +11,6 @@ FactoryGirl.define do
 
     sequence(:description) { |n| "description_#{n}" }
     sequence(:url) { |n| "www.user_#{n}.mapsndata.com" }
-    sequence(:address) { |n| "address_#{n}" }
-    longitude "9.99"
-    latitude "-8.88"
 
   end
 end
