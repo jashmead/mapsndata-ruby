@@ -55,6 +55,7 @@ class MapsController < ApplicationController
   # DELETE /maps/1
   # DELETE /maps/1.json
   def destroy
+    logger.debug("MapsController.destroy: params: #{params.inspect}")
     @map.destroy
     respond_to do |format|
       format.html { redirect_to maps_url }

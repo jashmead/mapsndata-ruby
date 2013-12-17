@@ -1,5 +1,9 @@
 class Map < ActiveRecord::Base
 
+  # I'm a bit concerned, now that I think about it, that the term 'map' may confuse Ruby, which is found of it
+  #   -- no indication of problems so far, and would really hate to change the name to something silly,
+  #   -- like karte or kort or chart or somesuch...
+
   # layout types basically from d3
   LAYOUT_TYPES = [
     'blank',    	# not from d3, needs x & y positions for each element, will place a title & url there,
@@ -39,6 +43,8 @@ class Map < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user, inverse_of: :maps
+
+  has_many :data_sources, inverse_of: :map, dependent: :destroy
 
   # additional fields:
   #   map_width, map_height

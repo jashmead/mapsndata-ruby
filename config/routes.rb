@@ -1,5 +1,7 @@
 Mapsndata::Application.routes.draw do
 
+  resources :data_sources
+
   # do home, help & sitemap as, logically enough, maps
   get '/', to: redirect('/maps/home')
   get '/home', to: redirect('/maps/home')

@@ -1,0 +1,51 @@
+<h1>Listing data_sources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Map</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Email</th>
+      <th>Contact name</th>
+      <th>Address</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>X pos</th>
+      <th>Y pos</th>
+      <th>X width</th>
+      <th>Y width</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_sources.each do |data_source| %>
+      <tr>
+        <td><%= data_source.map_id %></td>
+        <td><%= data_source.name %></td>
+        <td><%= data_source.description %></td>
+        <td><%= data_source.url %></td>
+        <td><%= data_source.email %></td>
+        <td><%= data_source.contact_name %></td>
+        <td><%= data_source.address %></td>
+        <td><%= data_source.longitude %></td>
+        <td><%= data_source.latitude %></td>
+        <td><%= data_source.x_pos %></td>
+        <td><%= data_source.y_pos %></td>
+        <td><%= data_source.x_width %></td>
+        <td><%= data_source.y_width %></td>
+        <td><%= link_to 'Show', data_source %></td>
+        <td><%= link_to 'Edit', edit_data_source_path(data_source) %></td>
+        <td><%= link_to 'Destroy', data_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data source', new_data_source_path %>

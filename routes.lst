@@ -5,6 +5,7 @@
                  sitemap GET    /sitemap(.:format)              redirect(301, /maps/sitemap)
                 maps_new GET    /maps/new(.:format)             maps#new
                          GET    /maps/:name(.:format)           maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
+               blank_map GET    /maps/:id/blank(.:format)       maps#blank
          named_maps_maps GET    /maps/named_maps(.:format)      maps#named_maps
                     maps GET    /maps(.:format)                 maps#index
                          POST   /maps(.:format)                 maps#create

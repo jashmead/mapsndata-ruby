@@ -1,0 +1,69 @@
+<%= form_for(@data_source) do |f| %>
+  <% if @data_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@data_source.errors.count, "error") %> prohibited this data_source from being saved:</h2>
+
+      <ul>
+      <% @data_source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :map_id %><br>
+    <%= f.number_field :map_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br>
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :x_pos %><br>
+    <%= f.text_field :x_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :y_pos %><br>
+    <%= f.text_field :y_pos %>
+  </div>
+  <div class="field">
+    <%= f.label :x_width %><br>
+    <%= f.text_field :x_width %>
+  </div>
+  <div class="field">
+    <%= f.label :y_width %><br>
+    <%= f.text_field :y_width %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
