@@ -1,0 +1,34 @@
+                  Prefix Verb   URI Pattern                     Controller#Action
+        new_user_session GET    /users/sign_in(.:format)        devise/sessions#new
+            user_session POST   /users/sign_in(.:format)        devise/sessions#create
+    destroy_user_session GET    /users/sign_out(.:format)       devise/sessions#destroy
+           user_password POST   /users/password(.:format)       devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)   devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)  devise/passwords#edit
+                         PATCH  /users/password(.:format)       devise/passwords#update
+                         PUT    /users/password(.:format)       devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)         devise/registrations#cancel
+       user_registration POST   /users(.:format)                devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)        devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)           devise/registrations#edit
+                         PATCH  /users(.:format)                devise/registrations#update
+                         PUT    /users(.:format)                devise/registrations#update
+                         DELETE /users(.:format)                devise/registrations#destroy
+                 sign_up GET    /sign_up(.:format)              devise/registrations#new
+                 sign_in GET    /sign_in(.:format)              devise/sessions#new
+                sign_out DELETE /sign_out(.:format)             devise/sessions#destroy
+                         GET    /sign_out(.:format)             devise/sessions#destroy
+          reset_password GET    /reset_password(.:format)       devise/passwords#new
+                settings GET    /settings(.:format)             devise/registrations#edit
+                   users GET    /users(.:format)                users#index
+                         POST   /users(.:format)                users#create
+                new_user GET    /users/new(.:format)            users#new
+               edit_user GET    /users/:id/edit(.:format)       users#edit
+                    user GET    /users/:id(.:format)            users#show
+                         PATCH  /users/:id(.:format)            users#update
+                         PUT    /users/:id(.:format)            users#update
+                         DELETE /users/:id(.:format)            users#destroy
+      static_pages_about GET    /static_pages/about(.:format)   static_pages#about
+    static_pages_contact GET    /static_pages/contact(.:format) static_pages#contact
+       static_pages_help GET    /static_pages/help(.:format)    static_pages#help
+                    root GET    /                               static_pages#about
