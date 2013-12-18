@@ -1,32 +1,28 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Maps & Data", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- Profile goes to show, Settings to edit -->
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", sign_out_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <!-- putting a '/' between sign in & new account broke spacing -->
-            <!-- how to turn off a page if you are already on it? -->
-            <li><%= link_to "Sign in", sign_in_path %></li>
-            <li><%= link_to "Create New Account", sign_up_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+    <%= link_to "Maps & Data", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav pull-right">
+        <% if signed_in? %>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- Profile goes to show, Settings to edit -->
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "SignOut", sign_out_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "SignIn", sign_in_path %></li>
+          <li><%= link_to "Create New Account", sign_up_path %></li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 </header>

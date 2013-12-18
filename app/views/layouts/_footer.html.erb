@@ -4,7 +4,9 @@
       <li><%= link_to "Home",   home_path %></li>
       <li><%= link_to "About",   about_path  %></li>
       <li><%= link_to "Contact", contact_path %></li>
-      <li><%= link_to "Sign Out", sign_out_path %></li>
+      <% if signed_in? %>
+        <li><%= link_to "SignOut", sign_out_path %></li>
+      <% end %>
       <li><%= link_to "Help",   help_path %></li>
     </ul>
   </nav>
