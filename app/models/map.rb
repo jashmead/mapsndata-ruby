@@ -57,16 +57,8 @@ class Map < ActiveRecord::Base
   #   cloned_from_id -- id of map this was cloned from
   # file/image fields (to be added)
 
-  private
-
-    # use wikipedia algorithm to turn titles to names, call on save
-    def title2name
-      
-    end
-
-    # use wikipedia algorithm to turn names to titles, call on fetch
-    def name2title
-
-    end
+  before_save do
+    self.name = name.titleize
+  end
 
 end

@@ -6,4 +6,8 @@ class DataSource < ActiveRecord::Base
 
   belongs_to :map, inverse_of: :data_sources
 
+  before_save do
+    self.name = name.titleize
+  end
+
 end

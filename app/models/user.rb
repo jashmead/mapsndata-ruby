@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { mimimum: 1, maximum: 255 }
 
   # since uniqueness of email being checked by gem 'devise', do not check here (otherwise we get 2x error messages)
+  # note forms now validate email as well, if the input type is email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, length: { mimimum: 1, maximum: 255 } #, #uniqueness: true
 

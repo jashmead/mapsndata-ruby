@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # make sure devise is told what to let thru, see:  
+  #   http://stackoverflow.com/questions/18413005/saving-custom-fields-in-devise-user-model-in-rails-4
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
   protected
 
     # devise version of strong parameters
