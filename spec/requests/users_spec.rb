@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# should add in sign_up, sign_in, sign_out, & settings tests
+
 describe "Users" do
   describe "GET /users" do
     it "works! (now write some real specs)" do

@@ -6,4 +6,10 @@ module ApplicationHelper
     id_bits.join('-').html_safe
   end
 
+  # from http://api.rubyonrails.org, form_for documentation:
+  def form_for_mad(model, *args, &block)
+    options = args.extract_options!
+    form_for(model, *(args << options.merge(builder: FormBuilderMad)), &block)
+  end 
+
 end

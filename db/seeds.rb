@@ -23,6 +23,8 @@ mapsndata_developer = User.create!(
   password_confirmation: 'Dr@g0n13'
 )
 
+# by populating the maps we create test data (data_sources) to help test the system as a whole
+# populate home map with useful data, i.e. location of the rest of the system
 home_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'home',
@@ -30,6 +32,7 @@ home_map = Map.create!(
   map_type: 'blank'
 )
 
+# populate help map with helps
 help_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'help',
@@ -37,6 +40,7 @@ help_map = Map.create!(
   map_type: 'blank'
 )
 
+# populate site map with key links to the system, as help & home (& my maps) 
 site_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'sitemap',
@@ -44,4 +48,3 @@ site_map = Map.create!(
   map_type: 'blank'
 )
 
-# populate home map with useful data, i.e. location of the rest of the system
