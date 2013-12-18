@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title><%=@title ||= yield(:title)%></title>
+    <title><%=@title ||= (yield(:title) || "Maps & Data") %></title>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <% #TBD:  work out theme that focuses attention on the talks, topics, people, venues %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet" />

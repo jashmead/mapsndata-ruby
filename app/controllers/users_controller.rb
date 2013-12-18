@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @title = @user.name
+    logger.debug("UsersController.show: @title: #{@title.inspect}")
   end
 
   # GET /users/new
@@ -19,6 +21,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @title = @user.name
+    logger.debug("UsersController.edit: @title: #{@title.inspect}")
   end
 
   # POST /users

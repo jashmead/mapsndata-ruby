@@ -11,6 +11,8 @@ class MapsController < ApplicationController
   # GET /maps/1
   # GET /maps/1.json
   def show
+    @title = @map.name.titleize
+    logger.debug("MapsController.show: @title: #{@title.inspect}")
   end
 
   # GET /maps/new
@@ -20,6 +22,8 @@ class MapsController < ApplicationController
 
   # GET /maps/1/edit
   def edit
+    @title = @map.name.titleize
+    logger.debug("MapsController.edit: @title: #{@title.inspect}")
   end
 
   # POST /maps
@@ -67,6 +71,8 @@ class MapsController < ApplicationController
     # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
     @map = Map.where('name = ?', params[:name]).first
     if @map
+      @title = @map.name.titleize
+      logger.debug("MapsController.named_map: @title: #{@title.inspect}")
       if user_signed_in?
         render 'edit' and return
       else
@@ -77,7 +83,6 @@ class MapsController < ApplicationController
       flash.now[:alert] = "Map #{params[:name]} not found."
       render 'index' and return
     end
-
   end
 
   def blank
@@ -89,6 +94,8 @@ class MapsController < ApplicationController
       else
         @mode = 'show'
       end
+      @title = @map.name.titleize
+      logger.debug("MapsController.blank: @title: #{@title.inspect}")
     else
       # perhaps should show a generic map screen instead
       flash.now[:alert] = "Map #{params[:name]} not found."
