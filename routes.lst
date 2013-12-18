@@ -1,51 +1,59 @@
-                  Prefix Verb   URI Pattern                     Controller#Action
-                         GET    /                               redirect(301, /maps/home)
-                    home GET    /home(.:format)                 redirect(301, /maps/home)
-                    help GET    /help(.:format)                 redirect(301, /maps/help)
-                 sitemap GET    /sitemap(.:format)              redirect(301, /maps/sitemap)
-                maps_new GET    /maps/new(.:format)             maps#new
-                         GET    /maps/:name(.:format)           maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
-               blank_map GET    /maps/:id/blank(.:format)       maps#blank
-         named_maps_maps GET    /maps/named_maps(.:format)      maps#named_maps
-                    maps GET    /maps(.:format)                 maps#index
-                         POST   /maps(.:format)                 maps#create
-                 new_map GET    /maps/new(.:format)             maps#new
-                edit_map GET    /maps/:id/edit(.:format)        maps#edit
-                     map GET    /maps/:id(.:format)             maps#show
-                         PATCH  /maps/:id(.:format)             maps#update
-                         PUT    /maps/:id(.:format)             maps#update
-                         DELETE /maps/:id(.:format)             maps#destroy
-        new_user_session GET    /users/sign_in(.:format)        devise/sessions#new
-            user_session POST   /users/sign_in(.:format)        devise/sessions#create
-    destroy_user_session GET    /users/sign_out(.:format)       devise/sessions#destroy
-           user_password POST   /users/password(.:format)       devise/passwords#create
-       new_user_password GET    /users/password/new(.:format)   devise/passwords#new
-      edit_user_password GET    /users/password/edit(.:format)  devise/passwords#edit
-                         PATCH  /users/password(.:format)       devise/passwords#update
-                         PUT    /users/password(.:format)       devise/passwords#update
-cancel_user_registration GET    /users/cancel(.:format)         devise/registrations#cancel
-       user_registration POST   /users(.:format)                devise/registrations#create
-   new_user_registration GET    /users/sign_up(.:format)        devise/registrations#new
-  edit_user_registration GET    /users/edit(.:format)           devise/registrations#edit
-                         PATCH  /users(.:format)                devise/registrations#update
-                         PUT    /users(.:format)                devise/registrations#update
-                         DELETE /users(.:format)                devise/registrations#destroy
-                 sign_up GET    /sign_up(.:format)              devise/registrations#new
-                 sign_in GET    /sign_in(.:format)              devise/sessions#new
-                sign_out DELETE /sign_out(.:format)             devise/sessions#destroy
-                         GET    /sign_out(.:format)             devise/sessions#destroy
-          reset_password GET    /reset_password(.:format)       devise/passwords#new
-                settings GET    /settings(.:format)             devise/registrations#edit
-                   users GET    /users(.:format)                users#index
-                         POST   /users(.:format)                users#create
-                new_user GET    /users/new(.:format)            users#new
-               edit_user GET    /users/:id/edit(.:format)       users#edit
-                    user GET    /users/:id(.:format)            users#show
-                         PATCH  /users/:id(.:format)            users#update
-                         PUT    /users/:id(.:format)            users#update
-                         DELETE /users/:id(.:format)            users#destroy
-      static_pages_about GET    /static_pages/about(.:format)   static_pages#about
-    static_pages_contact GET    /static_pages/contact(.:format) static_pages#contact
-                   about GET    /about(.:format)                static_pages#about
-                 contact GET    /contact(.:format)              static_pages#contact
-                    root GET    /                               maps#home
+                  Prefix Verb   URI Pattern                      Controller#Action
+            data_sources GET    /data_sources(.:format)          data_sources#index
+                         POST   /data_sources(.:format)          data_sources#create
+         new_data_source GET    /data_sources/new(.:format)      data_sources#new
+        edit_data_source GET    /data_sources/:id/edit(.:format) data_sources#edit
+             data_source GET    /data_sources/:id(.:format)      data_sources#show
+                         PATCH  /data_sources/:id(.:format)      data_sources#update
+                         PUT    /data_sources/:id(.:format)      data_sources#update
+                         DELETE /data_sources/:id(.:format)      data_sources#destroy
+                         GET    /                                redirect(301, /maps/home)
+                    home GET    /home(.:format)                  redirect(301, /maps/home)
+                    help GET    /help(.:format)                  redirect(301, /maps/help)
+                 sitemap GET    /sitemap(.:format)               redirect(301, /maps/sitemap)
+                maps_new GET    /maps/new(.:format)              maps#new
+                         GET    /maps/:name(.:format)            maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
+               blank_map GET    /maps/:id/blank(.:format)        maps#blank
+         named_maps_maps GET    /maps/named_maps(.:format)       maps#named_maps
+                    maps GET    /maps(.:format)                  maps#index
+                         POST   /maps(.:format)                  maps#create
+                 new_map GET    /maps/new(.:format)              maps#new
+                edit_map GET    /maps/:id/edit(.:format)         maps#edit
+                     map GET    /maps/:id(.:format)              maps#show
+                         PATCH  /maps/:id(.:format)              maps#update
+                         PUT    /maps/:id(.:format)              maps#update
+                         DELETE /maps/:id(.:format)              maps#destroy
+        new_user_session GET    /users/sign_in(.:format)         devise/sessions#new
+            user_session POST   /users/sign_in(.:format)         devise/sessions#create
+    destroy_user_session GET    /users/sign_out(.:format)        devise/sessions#destroy
+           user_password POST   /users/password(.:format)        devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)    devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)   devise/passwords#edit
+                         PATCH  /users/password(.:format)        devise/passwords#update
+                         PUT    /users/password(.:format)        devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)          devise/registrations#cancel
+       user_registration POST   /users(.:format)                 devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)         devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)            devise/registrations#edit
+                         PATCH  /users(.:format)                 devise/registrations#update
+                         PUT    /users(.:format)                 devise/registrations#update
+                         DELETE /users(.:format)                 devise/registrations#destroy
+                 sign_up GET    /sign_up(.:format)               devise/registrations#new
+                 sign_in GET    /sign_in(.:format)               devise/sessions#new
+                sign_out DELETE /sign_out(.:format)              devise/sessions#destroy
+                         GET    /sign_out(.:format)              devise/sessions#destroy
+          reset_password GET    /reset_password(.:format)        devise/passwords#new
+                settings GET    /settings(.:format)              devise/registrations#edit
+                   users GET    /users(.:format)                 users#index
+                         POST   /users(.:format)                 users#create
+                new_user GET    /users/new(.:format)             users#new
+               edit_user GET    /users/:id/edit(.:format)        users#edit
+                    user GET    /users/:id(.:format)             users#show
+                         PATCH  /users/:id(.:format)             users#update
+                         PUT    /users/:id(.:format)             users#update
+                         DELETE /users/:id(.:format)             users#destroy
+      static_pages_about GET    /static_pages/about(.:format)    static_pages#about
+    static_pages_contact GET    /static_pages/contact(.:format)  static_pages#contact
+                   about GET    /about(.:format)                 static_pages#about
+                 contact GET    /contact(.:format)               static_pages#contact
+                    root GET    /                                maps#home
