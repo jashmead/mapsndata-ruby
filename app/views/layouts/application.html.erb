@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mapsndata</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>
-</head>
-<body>
-
-  <div class="container">
-    <%=render 'layouts/header'%>
-
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-
-    <div id="<%=tagged_id('content')%>">
-      <%=yield%>
-    </div>
-
-    <%= render 'layouts/footer' %>
-  </div>
-
-  <%= debug(params) if Rails.env.development? %>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title><%=@title ||= yield(:title)%></title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <% #TBD:  work out theme that focuses attention on the talks, topics, people, venues %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet" />
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <meta name="viewport" content="user-scalable=no,width=device-width" />
+  </head>
+	<body>
+	  <div class="container">
+	    <%=render 'layouts/header'%>
+	
+	    <% flash.each do |key, value| %>
+	      <div class="alert alert-<%= key %>"><%= value %></div>
+	    <% end %>
+	
+	    <div id="<%=tagged_id('content')%>">
+	      <%=yield%>
+	    </div>
+	
+	    <%= render 'layouts/footer' %>
+	  </div>
+	  <%= debug(params) if Rails.env.development? %>
+	</body>
 </html>

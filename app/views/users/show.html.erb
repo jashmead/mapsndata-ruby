@@ -1,13 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "User Information") %>
 
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
 </p>
 
 <p>
@@ -19,21 +14,3 @@
   <strong>Url:</strong>
   <%= @user.url %>
 </p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @user.longitude %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @user.latitude %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

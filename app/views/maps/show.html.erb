@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Show Map") %>
 
 <p>
   <strong>User:</strong>
@@ -19,16 +19,3 @@
   <strong>Description:</strong>
   <%= @map.description %>
 </p>
-
-<p>
-  <strong>Map width:</strong>
-  <%= @map.map_width %>
-</p>
-
-<p>
-  <strong>Map height:</strong>
-  <%= @map.map_height %>
-</p>
-
-<%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>

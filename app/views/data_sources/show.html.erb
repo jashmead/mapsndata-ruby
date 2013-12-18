@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Map:</strong>
-  <%= @data_source.map_id %>
+  <strong>Map#</strong>
+  <%= @data_source.map_id%>
 </p>
 
 <p>
@@ -14,56 +12,3 @@
   <strong>Description:</strong>
   <%= @data_source.description %>
 </p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @data_source.url %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @data_source.email %>
-</p>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @data_source.contact_name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @data_source.address %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @data_source.longitude %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @data_source.latitude %>
-</p>
-
-<p>
-  <strong>X pos:</strong>
-  <%= @data_source.x_pos %>
-</p>
-
-<p>
-  <strong>Y pos:</strong>
-  <%= @data_source.y_pos %>
-</p>
-
-<p>
-  <strong>X width:</strong>
-  <%= @data_source.x_width %>
-</p>
-
-<p>
-  <strong>Y width:</strong>
-  <%= @data_source.y_width %>
-</p>
-
-<%= link_to 'Edit', edit_data_source_path(@data_source) %> |
-<%= link_to 'Back', data_sources_path %>

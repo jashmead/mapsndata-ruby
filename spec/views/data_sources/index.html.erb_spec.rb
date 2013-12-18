@@ -41,16 +41,5 @@ describe "data_sources/index" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Url".to_s, :count => 2
-    assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Contact Name".to_s, :count => 2
-    assert_select "tr>td", :text => "MyAddress".to_s, :count => 2
-    assert_select "tr>td", :text => "1.11".to_s, :count => 2
-    assert_select "tr>td", :text => "2.22".to_s, :count => 2
-    assert_select "tr>td", :text => "3.33".to_s, :count => 2
-    assert_select "tr>td", :text => "4.44".to_s, :count => 2
-    assert_select "tr>td", :text => "5.55".to_s, :count => 2
-    assert_select "tr>td", :text => "6.66".to_s, :count => 2
   end
 end
