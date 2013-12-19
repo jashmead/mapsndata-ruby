@@ -97,3 +97,5 @@ gem 'rdoc'
 gem 'devise'
 
 gem 'paperclip'
+
+gem 'leaflet-rails'
