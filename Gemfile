@@ -95,3 +95,5 @@ gem 'rdoc'
 ## ignore this suggestion; it is a disaster
 
 gem 'devise'
+
+gem 'paperclip'

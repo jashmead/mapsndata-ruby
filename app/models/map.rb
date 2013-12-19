@@ -57,6 +57,13 @@ class Map < ActiveRecord::Base
   #   cloned_from_id -- id of map this was cloned from
   # file/image fields (to be added)
 
+  # OK, there is probably a better word than avatar...
+  has_attached_file :avatar, 
+    :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+    :url => "/system/:attachment/:id/:style/:filename",
+    :styles => { :medium => "640x480#", :thumb => "64x64#", 
+      :default_url => "/images/:style/empty_map.png" }
+
   before_save do
     self.name = name.titleize
   end

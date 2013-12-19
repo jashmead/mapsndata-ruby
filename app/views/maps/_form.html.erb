@@ -1,4 +1,5 @@
-<%= form_for(@map) do |f| %>
+<%= form_for(@map, :html => { :multipart => true } ) do |f| %>
+
   <% if @map.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
@@ -35,7 +36,11 @@
     <%= f.label :map_height %><br>
     <%= f.text_field :map_height %>
   </div>
+
+  <%= f.file_field :avatar %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-  before_action :set_map, only: [:show, :edit, :update, :destroy]
+  before_action :set_map, only: [:show, :edit, :update, :destroy, :blank]
 
   # GET /maps
   # GET /maps.json
@@ -111,6 +111,7 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:user_id, :map_type, :name, :description, :map_width, :map_height)
+      params.require(:map).permit(:user_id, :map_type, :name, :description, :map_width, :map_height,
+        :avatar)
     end
 end
