@@ -84,7 +84,11 @@ CREATE TABLE maps (
     map_width numeric,
     map_height numeric,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    avatar_file_name character varying(255),
+    avatar_content_type character varying(255),
+    avatar_file_size integer,
+    avatar_updated_at timestamp without time zone
 );
 
 
@@ -259,3 +263,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131217220225');
 INSERT INTO schema_migrations (version) VALUES ('20131217224049');
 
 INSERT INTO schema_migrations (version) VALUES ('20131217224110');
+
+INSERT INTO schema_migrations (version) VALUES ('20131218234045');
