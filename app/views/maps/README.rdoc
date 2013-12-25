@@ -1,0 +1,68 @@
+== Map Layouts
+
+roughly one type per map type, not counting new & edit
+
+=== New
+to setup
+
+=== Edit
+for the text data
+
+=== Index
+'new', 'search' on the navbar
+-- put a search at the top of the list, put an advanced search button to its right
+  -- if a list showing
+  -- go for 'near' button as well
+  -- a lot of this stuff can be done with triggers
+    -- put into the executes?
+    -- or just into a separate seeds.sql script
+      -- or, mapsndata.sql script
+  -- double click on a map gets you the individual map
+    -- in individual map, go to 'search'
+
+=== Blank
+x,y mostly for debugging
+
+=== Leaflet
+for url maps, primarily, then add others
+
+=== D3
+
+-- and see the list of Layouts in app/models/map.rb
+
+=== List of map types
+
+'blank',      # just an empty div, good for debugging & for getting started
+'tag_cloud',  # just put the names on a blank div or image
+'image',      # image of map, usual image formats
+'leaflet',    # use leaflet to build
+'google',     # use google to build
+'d3',         # use svg (& probably d3) to build -- less passive take on image
+'custom',     # hand-hacked, may not be modifiable, likely to have custom js/css
+'frozen'      # no further edits permitted, may have custom css/js, has been dumped into some kind of fixed image + links format
+
+=== speculative
+
+'3d'
+
+== Map Controls
+
+Basically the leaflet controls with as-indicated modifications
+
+Can we use the leaflet even for blank?  probably!
+  -- can imagemagic create a blank map?
+    -- probably
+
+controls we might want:
+  drag up, down, left, right
+  drag a point up, down, left, right
+  edit data for a point
+    double-click on it
+  show hit zones around points
+    -- do we need the widths
+  zoom in/out
+    -- leaflet has controls for this, see also the ruby gems for said controls
+  click on a point, go to the url!
+    -- main function, should be almost free
+    -- on blank map will be
+  simplest non-trivial map?

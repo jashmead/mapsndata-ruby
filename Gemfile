@@ -98,3 +98,4 @@ gem 'devise'
 gem 'paperclip'
 
 gem 'leaflet-rails'
+gem 'leaflet-geosearch-rails'

@@ -1,0 +1,29 @@
+== NavBars
+
+default is home, ..., help, settings
+
+=== Map
+
+home, new, search, help, settings
+  -- format is list, but can go to: form, list of data_sources, put in a formats control, on the map itself
+
+=== Maps
+
+home, new, search, help, settings
+  -- format is list, see index
+
+=== Data Sources
+
+home, new, search, help, settings
+
+=== Data Sources
+
+home, new (clone is on the form), search, help, settings
+
+so is always! home, new, search, help, settings!
+
+no title
+
+put at top, easier to use
+
+all per map, per data_source controls are on the map, data_source itself

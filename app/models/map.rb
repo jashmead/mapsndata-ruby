@@ -1,10 +1,46 @@
+=begin
+  -- may need a map sub type as well
+  create_table "maps", force: true do |t|
+    t.integer  "user_id"
+    t.string   "map_type",            default: "blank", main one is "leaflet", "d3" (perhaps with subtypes) another biggie
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "map_width"
+    t.decimal  "map_height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  -- probably want a history version, done by triggers on the postgres side
+=end
+
 class Map < ActiveRecord::Base
 
   # I'm a bit concerned, now that I think about it, that the term 'map' may confuse Ruby, which is found of it
   #   -- no indication of problems so far, and would really hate to change the name to something silly,
   #   -- like karte or kort or chart or somesuch...
 
+  # not all map_types currently instantiated; will probably come up with more types in the future
+  # main types are blank for debugging & leaflet for most real work
+  MAP_TYPES = [ 
+    'blank',      # just an empty div, good for debugging & for getting started
+    'tag_cloud',  # just put the names on a blank div or image
+    'image',      # image of map, usual image formats
+    'leaflet',    # use leaflet to build
+    'google',     # use google to build
+    'd3',         # use svg (& probably d3) to build -- less passive take on image
+    'custom',     # hand-hacked, may not be modifiable, likely to have custom js/css
+    'frozen'      # no further edits permitted, may have custom css/js, has been dumped into some kind of fixed image + links format
+                  # easy way to do this is simply to mark the map frozen,
+                  # but really want a way to export it, which would imply all data_source info already on the map
+  ]
+
   # layout types basically from d3
+  #   -- in principle, other map types could have layout types, i.e. url for leaflet
   LAYOUT_TYPES = [
     'blank',    	# not from d3, needs x & y positions for each element, will place a title & url there,
                   #   -- can be on top of an image of some kind & in fact, this is best
@@ -21,19 +57,6 @@ class Map < ActiveRecord::Base
     'stack',    	# needs x-position & y-value for each element
     'tree',     	# needs a bunch of parent/child links
     'treemap'   	# needs parent/child links & value for each node
-  ]
-
-  # not all map_types currently instantiated; will probably come up with more types in the future
-  # main types are blank for debugging & leaflet for most real work
-  MAP_TYPES = [ 
-    'blank',      # just an empty div, good for debugging & for getting started
-    'tag_cloud',  # just put the names on a blank div or image
-    'image',      # image background, image can be png, jpg, tiff, svg
-    'leaflet',    # use leaflet to build
-    'google',     # use google to build
-    'svg',        # use svg (& probably d3) to build -- less passive take on image
-    'custom',     # hand-hacked, may not be modifiable, likely to have custom js/css
-    'frozen'      # no further edits permitted, may have custom css/js, has been dumped into some kind of fixed image + links format
   ]
 
   # canonicalize names using title2name, name2title below
