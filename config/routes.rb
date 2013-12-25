@@ -15,7 +15,7 @@ Mapsndata::Application.routes.draw do
 
   resources :maps do
     member do
-      get :blank
+      get :blank, :leaflet, :d3, :list
     end
     collection do
       get :named_maps

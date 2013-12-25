@@ -30,6 +30,10 @@ for url maps, primarily, then add others
 
 -- and see the list of Layouts in app/models/map.rb
 
+=== List
+
+show the data sources for the map, basically cuts you over to data_sources' index, but from the POV of this specific map
+
 === List of map types
 
 'blank',      # just an empty div, good for debugging & for getting started

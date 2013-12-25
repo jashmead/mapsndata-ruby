@@ -1,3 +1,14 @@
+=begin
+  actions required
+    blank, leaflet, d3, data
+  controls required
+    -- leaflet controllers (zoom, drag, click)
+    -- need a click to go to the url, if that is provided
+    -- map/data (other formats as indicated)
+    -- will need some local storage to track state
+    -- will some data to test:  name, url, address at a minimum, preferably email as well
+    -- start with a simple dataset & leaflet controls
+=end
 class MapsController < ApplicationController
   before_action :set_map, only: [:show, :edit, :update, :destroy, :blank]
 
@@ -85,8 +96,8 @@ class MapsController < ApplicationController
     end
   end
 
-  def blank
-    # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
+  # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
+  def map_type_q
     if @map
       if user_signed_in?
         @mode = 'edit'
@@ -94,13 +105,30 @@ class MapsController < ApplicationController
         @mode = 'show'
       end
       @title = @map.name.titleize
-      logger.debug("MapsController.blank: @title: #{@title.inspect}")
-      render 'blank' and return
+      # 'controller' is not available here, but 'action_name' still is
+      logger.debug("MapsController.#{action_name}: @title: #{@title.inspect}")
+      render action_name and return
     else
       # perhaps should show a generic map screen instead
       flash.now[:alert] = "Map #{params[:name]} not found."
       render 'index' and return
     end
+  end
+
+  def blank
+    map_type_q
+  end
+
+  def leaflet
+    map_type_q
+  end
+
+  def d3
+    map_type_q
+  end
+
+  def list
+    map_type_q
   end
 
   private
