@@ -24,6 +24,7 @@ class Map < ActiveRecord::Base
   ]
 
   # not all map_types currently instantiated; will probably come up with more types in the future
+  # main types are blank for debugging & leaflet for most real work
   MAP_TYPES = [ 
     'blank',      # just an empty div, good for debugging & for getting started
     'tag_cloud',  # just put the names on a blank div or image

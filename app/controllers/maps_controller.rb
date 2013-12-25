@@ -80,14 +80,13 @@ class MapsController < ApplicationController
       end
     else
       # perhaps should show a generic map screen instead
-      flash.now[:alert] = "Map #{params[:name]} not found."
+      flash.now[:alert] = "No map found"
       render 'index' and return
     end
   end
 
   def blank
     # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
-    @map = Map.where('name = ?', params[:name]).first
     if @map
       if user_signed_in?
         @mode = 'edit'
@@ -96,6 +95,7 @@ class MapsController < ApplicationController
       end
       @title = @map.name.titleize
       logger.debug("MapsController.blank: @title: #{@title.inspect}")
+      render 'blank' and return
     else
       # perhaps should show a generic map screen instead
       flash.now[:alert] = "Map #{params[:name]} not found."
