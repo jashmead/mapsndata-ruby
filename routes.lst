@@ -14,6 +14,9 @@
                 maps_new GET    /maps/new(.:format)              maps#new
                          GET    /maps/:name(.:format)            maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
                blank_map GET    /maps/:id/blank(.:format)        maps#blank
+             leaflet_map GET    /maps/:id/leaflet(.:format)      maps#leaflet
+                  d3_map GET    /maps/:id/d3(.:format)           maps#d3
+                list_map GET    /maps/:id/list(.:format)         maps#list
          named_maps_maps GET    /maps/named_maps(.:format)       maps#named_maps
                     maps GET    /maps(.:format)                  maps#index
                          POST   /maps(.:format)                  maps#create
