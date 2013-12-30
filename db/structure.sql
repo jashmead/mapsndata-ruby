@@ -41,14 +41,13 @@ CREATE TABLE data_sources (
     email character varying(255),
     contact_name character varying(255),
     address text,
-    longitude numeric,
-    latitude numeric,
-    x_pos numeric,
-    y_pos numeric,
-    x_width numeric,
-    y_width numeric,
+    ds_x numeric,
+    ds_y numeric,
+    ds_width numeric,
+    ds_height numeric,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    ds_type character varying(255) DEFAULT 'point'::character varying
 );
 
 
@@ -88,7 +87,9 @@ CREATE TABLE maps (
     avatar_file_name character varying(255),
     avatar_content_type character varying(255),
     avatar_file_size integer,
-    avatar_updated_at timestamp without time zone
+    avatar_updated_at timestamp without time zone,
+    map_x numeric,
+    map_y numeric
 );
 
 
@@ -265,3 +266,9 @@ INSERT INTO schema_migrations (version) VALUES ('20131217224049');
 INSERT INTO schema_migrations (version) VALUES ('20131217224110');
 
 INSERT INTO schema_migrations (version) VALUES ('20131218234045');
+
+INSERT INTO schema_migrations (version) VALUES ('20131230175056');
+
+INSERT INTO schema_migrations (version) VALUES ('20131230175342');
+
+INSERT INTO schema_migrations (version) VALUES ('20131230180332');
