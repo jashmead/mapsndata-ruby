@@ -8,10 +8,19 @@ describe Map do
 
   subject { @map }
 
+  it { should respond_to(:user) }
+
+  it { should respond_to(:user_id) }
+  it { should respond_to(:map_type) }
   it { should respond_to(:name) }
   it { should respond_to(:description) }
-  it { should respond_to(:user_id) }
-  it { should respond_to(:user) }
+
+  it { should respond_to(:map_width) }
+  it { should respond_to(:map_height) }
+  it { should respond_to(:map_x) }
+  it { should respond_to(:map_y) }
+
+  it { should respond_to(:data_sources) }
 
   its(:user) { should eq user }
 

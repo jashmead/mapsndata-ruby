@@ -18,7 +18,7 @@
   end
 
   -- could use a data_source type:
-    url, map, chart (will need sub type), control
+    point, url, map, table, chart (may need sub type), control
       that is the controls are worked by using data_sources with the correct type & properties
       -- could have a separate controls table, but that seems less elegant, somehow
 
@@ -46,9 +46,13 @@
 
 class DataSource < ActiveRecord::Base
 
+  DS_TYPES = [ 'point', 'url', 'control', 'map', 'table', 'chart' ]
+
   validates :map_id, presence: true
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 1, maximum: 255 }
+
+  validates_inclusion_of :ds_type, :in => DS_TYPES
 
   belongs_to :map, inverse_of: :data_sources
 
