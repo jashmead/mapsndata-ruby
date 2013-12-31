@@ -1,5 +1,7 @@
 Mapsndata::Application.routes.draw do
 
+  resources :helps
+
   resources :data_sources
 
   # do home, help & sitemap as, logically enough, maps
