@@ -2,7 +2,7 @@
   -- may need a map sub type as well
   create_table "maps", force: true do |t|
     t.integer  "user_id"
-    t.string   "map_type",            default: "blank", main one is "leaflet", "d3" (perhaps with subtypes) another biggie
+    t.string   "map_type",            default: "blank"
     t.string   "name"
     t.text     "description"
     t.decimal  "map_width"
@@ -13,6 +13,8 @@
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.decimal  "map_x"
+    t.decimal  "map_y"
   end
 
   -- probably want a history version, done by triggers on the postgres side
