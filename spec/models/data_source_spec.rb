@@ -8,7 +8,7 @@ describe DataSource do
   before { 
     # create not build because we need the map.id for the data_source.map_id field
     @map = user.maps.create(name: "Lorem ipsum", description: "Let's map!", map_type: "leaflet")
-    @data_source = @map.data_sources.build(name: "Pick a point", description: "How about here?", ds_type: "point", map_id: @map.id)
+    @data_source = @map.data_sources.build(label: "Pick a point", details: "How about here?", ds_type: "point", map_id: @map.id)
   }
 
   subject { @data_source }
@@ -17,8 +17,8 @@ describe DataSource do
 
   it { should respond_to(:map_id) }
   it { should respond_to(:ds_type) }
-  it { should respond_to(:name) }
-  it { should respond_to(:description) }
+  it { should respond_to(:label) }
+  it { should respond_to(:details) }
 
   it { should respond_to(:ds_width) }
   it { should respond_to(:ds_height) }
@@ -27,14 +27,14 @@ describe DataSource do
 
   it { should be_valid }
 
-  describe "with a name that's too short" do
-    before { @data_source.name = "" }
+  describe "with a label that's too short" do
+    before { @data_source.label = "" }
     it { should be_invalid }
   end
 
-  describe "with a name that's too long" do
+  describe "with a label that's too long" do
     ## the string has to come before the '256', so that we coerce towards string
-    before { @data_source.name = "a" * 256  }
+    before { @data_source.label = "a" * 256  }
     it { should be_invalid }
   end
 

@@ -2,8 +2,8 @@
 
   create_table "data_sources", force: true do |t|
     t.integer  "map_id"
-    t.string   "name"
-    t.text     "description"
+    t.string   "label"
+    t.text     "details"
     t.string   "url"
     t.string   "email"
     t.string   "contact_name"
@@ -16,7 +16,6 @@
     t.datetime "updated_at"
     t.string   "ds_type",      default: "point"
   end
-
   -- could use a data_source type:
     point, url, map, table, chart (may need sub type), control
       that is the controls are worked by using data_sources with the correct type & properties
@@ -50,14 +49,14 @@ class DataSource < ActiveRecord::Base
 
   validates :map_id, presence: true
 
-  validates :name, presence: true, uniqueness: true, length: { minimum: 1, maximum: 255 }
+  validates :label, presence: true, uniqueness: true, length: { minimum: 1, maximum: 255 }
 
   validates_inclusion_of :ds_type, :in => DS_TYPES
 
   belongs_to :map, inverse_of: :data_sources
 
   before_save do
-    self.name = name.titleize
+    self.label = label.titleize
   end
 
 end

@@ -5,8 +5,8 @@ describe "data_sources/index" do
     assign(:data_sources, [
       stub_model(DataSource,
         :map_id => 1,
-        :name => "Name",
-        :description => "MyText",
+        :label => "Label",
+        :details => "MyDetails",
         :url => "Url",
         :email => "Email",
         :contact_name => "Contact Name",
@@ -20,8 +20,8 @@ describe "data_sources/index" do
       ),
       stub_model(DataSource,
         :map_id => 1,
-        :name => "Name",
-        :description => "MyText",
+        :label => "Label",
+        :details => "MyDetails2",
         :url => "Url",
         :email => "Email",
         :contact_name => "Contact Name",
@@ -40,6 +40,6 @@ describe "data_sources/index" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Label".to_s, :count => 2
   end
 end

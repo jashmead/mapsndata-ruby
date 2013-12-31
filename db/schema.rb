@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230180332) do
+ActiveRecord::Schema.define(version: 20131231225808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "data_sources", force: true do |t|
     t.integer  "map_id"
-    t.string   "name"
-    t.text     "description"
+    t.string   "label"
+    t.text     "details"
     t.string   "url"
     t.string   "email"
     t.string   "contact_name"

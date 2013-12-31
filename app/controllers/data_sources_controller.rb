@@ -69,6 +69,6 @@ class DataSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_source_params
-      params.require(:data_source).permit(:map_id, :name, :description, :url, :email, :contact_name, :address, :longitude, :latitude, :x_pos, :y_pos, :x_width, :y_width)
+      params.require(:data_source).permit(:map_id, :label, :details, :url, :email, :contact_name, :address, :longitude, :latitude, :x_pos, :y_pos, :x_width, :y_width)
     end
 end

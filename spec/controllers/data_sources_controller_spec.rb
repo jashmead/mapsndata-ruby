@@ -25,7 +25,7 @@ describe DataSourcesController do
   # adjust the attributes here as well.
   let(:user) { FactoryGirl.create(:user) }
   let(:map) { FactoryGirl.create(:map, :user_id => user.id ) }
-  let(:valid_attributes) { { "map_id" => map.id, "name" => "Test Data Source #1" } }
+  let(:valid_attributes) { { "map_id" => map.id, "label" => "Test Data Source #1" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

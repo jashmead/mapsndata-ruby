@@ -25,8 +25,8 @@ describe "data_sources/new" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", data_sources_path, "post" do
       assert_select "input#data_source_map_id[name=?]", "data_source[map_id]"
-      assert_select "input#data_source_name[name=?]", "data_source[name]"
-      assert_select "textarea#data_source_description[name=?]", "data_source[description]"
+      assert_select "input#data_source_label[name=?]", "data_source[label]"
+      assert_select "textarea#data_source_details[name=?]", "data_source[details]"
       assert_select "input#data_source_url[name=?]", "data_source[url]"
       assert_select "input#data_source_email[name=?]", "data_source[email]"
       assert_select "input#data_source_contact_name[name=?]", "data_source[contact_name]"
