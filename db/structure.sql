@@ -71,6 +71,39 @@ ALTER SEQUENCE data_sources_id_seq OWNED BY data_sources.id;
 
 
 --
+-- Name: helps; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE helps (
+    id integer NOT NULL,
+    name character varying(255),
+    title character varying(255),
+    description text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: helps_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE helps_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: helps_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE helps_id_seq OWNED BY helps.id;
+
+
+--
 -- Name: maps; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -175,6 +208,13 @@ ALTER TABLE ONLY data_sources ALTER COLUMN id SET DEFAULT nextval('data_sources_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY helps ALTER COLUMN id SET DEFAULT nextval('helps_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY maps ALTER COLUMN id SET DEFAULT nextval('maps_id_seq'::regclass);
 
 
@@ -191,6 +231,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY data_sources
     ADD CONSTRAINT data_sources_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: helps_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY helps
+    ADD CONSTRAINT helps_pkey PRIMARY KEY (id);
 
 
 --
@@ -274,3 +322,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131230175342');
 INSERT INTO schema_migrations (version) VALUES ('20131230180332');
 
 INSERT INTO schema_migrations (version) VALUES ('20131231225808');
+
+INSERT INTO schema_migrations (version) VALUES ('20131231234408');
