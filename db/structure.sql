@@ -35,8 +35,8 @@ SET default_with_oids = false;
 CREATE TABLE data_sources (
     id integer NOT NULL,
     map_id integer,
-    name character varying(255),
-    description text,
+    label character varying(255),
+    details text,
     url character varying(255),
     email character varying(255),
     contact_name character varying(255),
@@ -272,3 +272,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131230175056');
 INSERT INTO schema_migrations (version) VALUES ('20131230175342');
 
 INSERT INTO schema_migrations (version) VALUES ('20131230180332');
+
+INSERT INTO schema_migrations (version) VALUES ('20131231225808');
