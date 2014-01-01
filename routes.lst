@@ -8,9 +8,9 @@
                          PUT    /data_sources/:id(.:format)      data_sources#update
                          DELETE /data_sources/:id(.:format)      data_sources#destroy
                          GET    /                                redirect(301, /maps/home)
-                    home GET    /home(.:format)                  redirect(301, /maps/home)
-                    help GET    /help(.:format)                  redirect(301, /maps/help)
-                 sitemap GET    /sitemap(.:format)               redirect(301, /maps/sitemap)
+                    help GET    /help(.:format)                  maps#named_map {:name=>"help"}
+                    home GET    /home(.:format)                  maps#named_map {:name=>"home"}
+                 sitemap GET    /sitemap(.:format)               maps#named_map {:name=>"sitemap"}
                 maps_new GET    /maps/new(.:format)              maps#new
                          GET    /maps/:name(.:format)            maps#named_map {:name=>/[A-Za-z][A-Za-z0-9_]*/}
                blank_map GET    /maps/:id/blank(.:format)        maps#blank

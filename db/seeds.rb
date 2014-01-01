@@ -36,7 +36,7 @@ home_map = Map.create!(
 help_map = Map.create!(
   user_id: mapsndata_user.id,
   name: 'help',
-  description: 'Home map for Maps & Data',
+  description: 'Help map for Maps & Data',
   map_type: 'blank'
 )
 

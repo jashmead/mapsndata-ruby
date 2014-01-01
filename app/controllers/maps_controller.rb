@@ -22,6 +22,7 @@ class MapsController < ApplicationController
   # GET /maps/1
   # GET /maps/1.json
   def show
+    # actually the name should already be titleize'd
     @title = @map.name.titleize
     logger.debug("MapsController.show: @title: #{@title.inspect}")
   end
@@ -33,6 +34,7 @@ class MapsController < ApplicationController
 
   # GET /maps/1/edit
   def edit
+    # actually the name should already be titleize'd
     @title = @map.name.titleize
     logger.debug("MapsController.edit: @title: #{@title.inspect}")
   end
@@ -80,7 +82,8 @@ class MapsController < ApplicationController
 
   def named_map
     # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
-    @map = Map.where('name = ?', params[:name]).first
+    map_name = params[:name] || 'home'
+    @map = Map.where('name = ?', map_name.titleize).first
     if @map
       @title = @map.name.titleize
       logger.debug("MapsController.named_map: @title: #{@title.inspect}")
