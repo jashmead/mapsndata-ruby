@@ -3,8 +3,6 @@ require 'spec_helper'
 # should add in sign_up, sign_in, sign_out, & settings tests
 
 describe "Users" do
-# TBD and now users_path is a fail
-=begin
   describe "GET /users" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
@@ -12,5 +10,4 @@ describe "Users" do
       response.status.should be(200)
     end
   end
-=end
 end

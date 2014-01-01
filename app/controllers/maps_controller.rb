@@ -96,7 +96,7 @@ class MapsController < ApplicationController
     end
   end
 
-  # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!
+  # don't use 'map_params' or similar on 'get', as no ':map' param will be defined!, ':map' is used for forms only
   def map_type_q
     if @map
       if user_signed_in?

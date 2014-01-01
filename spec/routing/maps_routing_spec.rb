@@ -40,6 +40,12 @@ describe MapsController do
     it "routes to #named_map when given a name" do
       get("/maps/test_map").should route_to("maps#named_map", :name => "test_map")
     end
+    it "routes to #help with correct name when given specific routes" do
+      get("/home").should route_to("maps#named_map", :name => "home")
+      # get("/help").should route_to("maps#help")
+      # get("/sitemap").should route_to("maps#sitemap")
+    end
+
 
   end
 end

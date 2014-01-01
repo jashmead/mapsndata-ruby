@@ -3,13 +3,20 @@ Mapsndata::Application.routes.draw do
   resources :data_sources
 
   # do home, help & sitemap as, logically enough, maps
+
+  # use users page instead?
   get '/', to: redirect('/maps/home')
-  get '/home', to: redirect('/maps/home')
-  get '/sitemap', to: redirect('/maps/sitemap')
+
+  # get '/home', to: redirect('/maps/home')
+  # get '/help', to: redirect('/maps/help')
+  # get '/sitemap', to: redirect('/maps/sitemap')
+
+  match '/help', to: 'maps#named_map', name: 'help', via: 'get'
+  match '/home', to: 'maps#named_map', name: 'home', via: 'get'
+  match '/sitemap', to: 'maps#named_map', name: 'sitemap', via: 'get'
 
   # avoid treating 'new' as the name of a map, put above maps/name
   get '/maps/new', to: 'maps#new'
-
   get '/maps/:name', to: 'maps#named_map', constraints: { name: /[A-Za-z][A-Za-z0-9_]*/ }
 
   resources :maps do
@@ -34,11 +41,6 @@ Mapsndata::Application.routes.draw do
   end
 
   resources :users
-
-  get '/helps/new', to: 'helps#new' # otherwise new is treated as the name of a help text
-  get '/helps/:name', to: 'helps#help', constraints: { name: /[A-Za-z][A-Za-z0-9_]*/ }
-
-  resources :helps
 
   get "static_pages/about"
   get "static_pages/contact"
