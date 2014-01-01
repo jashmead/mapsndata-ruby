@@ -55,6 +55,17 @@ cancel_user_registration GET    /users/cancel(.:format)          devise/registra
                          PATCH  /users/:id(.:format)             users#update
                          PUT    /users/:id(.:format)             users#update
                          DELETE /users/:id(.:format)             users#destroy
+               helps_new GET    /helps/new(.:format)             helps#new
+                         GET    /help/:name(.:format)            helps#help {:name=>/[A-Za-z][A-Za-z0-9_]*/}
+                         GET    /helps/:name(.:format)           helps#help {:name=>/[A-Za-z][A-Za-z0-9_]*/}
+                   helps GET    /helps(.:format)                 helps#index
+                         POST   /helps(.:format)                 helps#create
+                new_help GET    /helps/new(.:format)             helps#new
+               edit_help GET    /helps/:id/edit(.:format)        helps#edit
+                         GET    /helps/:id(.:format)             helps#show
+                         PATCH  /helps/:id(.:format)             helps#update
+                         PUT    /helps/:id(.:format)             helps#update
+                         DELETE /helps/:id(.:format)             helps#destroy
       static_pages_about GET    /static_pages/about(.:format)    static_pages#about
     static_pages_contact GET    /static_pages/contact(.:format)  static_pages#contact
                    about GET    /about(.:format)                 static_pages#about

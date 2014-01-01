@@ -6,10 +6,6 @@ describe "redirection" do
     get "/sitemap"
     response.should redirect_to("/maps/sitemap")
   end
-  it "should redirect help to maps/help" do
-    get "/help"
-    response.should redirect_to("/maps/help")
-  end
   it "should redirect home to maps/home " do
     get "/home"
     response.should redirect_to("/maps/home")

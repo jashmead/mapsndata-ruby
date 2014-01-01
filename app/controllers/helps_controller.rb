@@ -61,6 +61,19 @@ class HelpsController < ApplicationController
     end
   end
 
+  # NOTE:  don't use 'help_params' or similar on 'get', as no ':help' param will be defined!
+  #   -- codeclimate now marks this method as complexity 28, acceptable, was 40, over the line
+  #   -- for starters, we are always an admin; fix later
+  def help
+    @help = Help.where('name = ?', params[:name]).first
+    if @help
+      render 'edit' and return
+    else
+      @help = Help.new( name: params[:name], title: params[:name], description: "Help for page " + params[:name] )
+      render 'new' and return
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_help

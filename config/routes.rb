@@ -1,13 +1,10 @@
 Mapsndata::Application.routes.draw do
 
-  resources :helps
-
   resources :data_sources
 
   # do home, help & sitemap as, logically enough, maps
   get '/', to: redirect('/maps/home')
   get '/home', to: redirect('/maps/home')
-  get '/help', to: redirect('/maps/help')
   get '/sitemap', to: redirect('/maps/sitemap')
 
   # avoid treating 'new' as the name of a map, put above maps/name
@@ -37,6 +34,11 @@ Mapsndata::Application.routes.draw do
   end
 
   resources :users
+
+  get '/helps/new', to: 'helps#new' # otherwise new is treated as the name of a help text
+  get '/helps/:name', to: 'helps#help', constraints: { name: /[A-Za-z][A-Za-z0-9_]*/ }
+
+  resources :helps
 
   get "static_pages/about"
   get "static_pages/contact"
