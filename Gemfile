@@ -16,8 +16,8 @@ gem 'sass-rails', '~> 4.0.0'
 # bootstrap css
 gem 'bootstrap-sass'            # need to comment out before move to jQuery Mobile? there may be something still depending on it
 gem 'bootstrap-sass-rails'    # no apparent benefit, inspite of greater specificity
-gem 'bootstrap-will_paginate' # fix up will_paginate stuff to match bootstrap, produced no apparent improvement
-gem 'will_paginate-bootstrap' # this gem didn't make any difference either...
+# gem 'bootstrap-will_paginate' # fix up will_paginate stuff to match bootstrap, produced no apparent improvement
+# gem 'will_paginate-bootstrap' # this gem didn't make any difference either...
 
 ## load capybara before rspec
 ## how does capybara drive the web? via Rack::Test & Selenium

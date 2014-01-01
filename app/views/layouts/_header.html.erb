@@ -1,4 +1,17 @@
-<% # kill title & everything, move navbar from footer to here %>
-<header class="navbar navbar-fixed-top">
-  <%= render partial: 'layouts/title' %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Maps & Data", home_path, id: "logo" %>
+      <nav>
+        <ul id="header-nav" class="list-inline pull-right">
+          <li><%= link_to "Home",    home_path %></li>
+          <li><%= link_to "New Map", new_map_path %></li>
+          <li><%= link_to "Search Maps", maps_path %></li>
+          <li><%= link_to "Sign in", sign_in_path %></li>
+          <li><%= link_to "Help",    help_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
+
