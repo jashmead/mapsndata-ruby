@@ -18,6 +18,10 @@
   end
 
   -- probably want a history version, done by triggers on the postgres side
+  -- additional fields
+    -- map_frozen
+    -- map_self_contained
+
 =end
 
 class Map < ActiveRecord::Base
@@ -35,10 +39,7 @@ class Map < ActiveRecord::Base
     'leaflet',    # use leaflet to build
     'google',     # use google to build
     'd3',         # use svg (& probably d3) to build -- less passive take on image
-    'custom',     # hand-hacked, may not be modifiable, likely to have custom js/css
-    'frozen'      # no further edits permitted, may have custom css/js, has been dumped into some kind of fixed image + links format
-                  # easy way to do this is simply to mark the map frozen,
-                  # but really want a way to export it, which would imply all data_source info already on the map
+    'custom'     # hand-hacked, may not be modifiable, likely to have custom js/css
   ]
 
   # layout types basically from d3

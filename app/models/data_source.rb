@@ -20,6 +20,7 @@
     point, url, map, table, chart (may need sub type), control
       that is the controls are worked by using data_sources with the correct type & properties
       -- could have a separate controls table, but that seems less elegant, somehow
+    -- have:  ds_type
 
   -- current assumption:  each data_source has only one map
     -- logical for getting started
@@ -37,15 +38,34 @@
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+    -- later
 
   -- may want a data_feeds table:
     as for the census bureau
+    -- or, include in a feed_url...
+
+  -- will want an image set (via paperclip)
+
+  -- will want a data_table (via paperclip)
+    -- with raw (paperclip), columns, rows, cells, table (as a whole)
+    -- build when about to use (JIT)
+    -- merge with image?
+      -- no real need for this
 
 =end
 
 class DataSource < ActiveRecord::Base
 
-  DS_TYPES = [ 'point', 'url', 'control', 'map', 'table', 'chart' ]
+  # some types may need sub-types; build if needed
+  DS_TYPES = [ 
+    'point',    # simplest, point + associated data
+    'url',      # for main map type
+    'control',  # control of some type
+    'map',      # nested map, the url will point to the sub map, circular & even self is fine
+    'table', 
+    'chart', 
+    'whole'     # applies to the map as a whole
+  ]
 
   validates :map_id, presence: true
 
